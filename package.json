@@ -1,0 +1,23 @@
+{
+  "name": "node-telegram-cache-chat-messages",
+  "description": "Node module which helps your bot to cache messages in Telegram chat",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "author": {
+    "name": "Marat Fakhreev",
+    "email": "marat.fakhreev@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://gitlab.com/maratfakhreev/node-telegram-cache-chat-messages.git"
+  },
+  "scripts": {
+    "start": "nodemon index.js --max-old-space-size=128",
+    "dev": "nodemon index.js --max-old-space-size=128",
+    "test": "eslint index.js"
+  },
+  "devDependencies": {
+    "eslint-config-fs": "~0.1.0"
+  }
+}
