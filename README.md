@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/maratfakhreev/node-telegram-cache-chat-messages.svg?branch=master)](https://travis-ci.org/maratfakhreev/node-telegram-cache-chat-messages)
 
-Node module which helps your bot to cache text messages in Telegram chat
+Node module which helps your bot to cache text messages in Telegram chat.
 
 ### Install:
 
