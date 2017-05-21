@@ -7,7 +7,7 @@ module.exports = class TelegramCacheChatMessage {
     this.bot = options.bot;
     this.all = options.all;
 
-    this.bot.on('message', (msg) => this.cacheMessages(msg));
+    this.bot.on('message', msg => this.cacheMessages(msg));
   }
 
   chatIndex(chatId) {

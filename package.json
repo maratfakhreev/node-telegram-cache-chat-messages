@@ -17,7 +17,11 @@
     "dev": "nodemon index.js --max-old-space-size=128",
     "test": "eslint index.js"
   },
+  "peerDependencies": {
+    "node-telegram-bot-api": ">=0.20.0"
+  },
   "devDependencies": {
-    "eslint-config-fs": "~0.1.0"
+    "eslint": "^3.19.0",
+    "eslint-config-fs": "^0.2.2"
   }
 }
