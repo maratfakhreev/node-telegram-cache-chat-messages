@@ -51,6 +51,6 @@ module.exports = class TelegramCacheChatMessage {
       return messages;
     }
 
-    return null;
+    return [];
   }
 };
