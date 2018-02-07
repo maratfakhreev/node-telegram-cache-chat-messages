@@ -2,12 +2,24 @@ const isTextMessage = msg => !!msg.text;
 const isBotCommand = msg => msg.entities && msg.entities[0].type === 'bot_command';
 
 module.exports = class TelegramCacheChatMessage {
-  constructor(options) {
+  constructor(options = {}) {
     this.chats = [];
-    this.bot = options.bot;
-    this.all = options.all;
+    this.options = {
+      bot: undefined,
+      all: false,
+      edited: true,
+      ...options
+    };
 
-    this.bot.on('message', msg => this.cacheMessages(msg));
+    if (!this.options.bot) {
+      throw new Error('"bot" option is required');
+    }
+
+    this.options.bot.on('message', msg => this.cacheMessages(msg));
+
+    if (this.options.edited) {
+      this.options.bot.on('edited_message', msg => this.cacheMessages(msg));
+    }
   }
 
   chatIndex(chatId) {
@@ -29,7 +41,7 @@ module.exports = class TelegramCacheChatMessage {
     const currentChatIndex = this.chatIndex(chatId);
 
     if (currentChatIndex > -1) {
-      if (this.all) {
+      if (this.options.all) {
         this.chats[currentChatIndex].messages.push(msg);
       } else {
         this.chats[currentChatIndex].messages = [msg];

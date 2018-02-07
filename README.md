@@ -19,7 +19,11 @@ const TelegramBot = require('node-telegram-bot-api');
 const TelegramCacheChatMessages = require('node-telegram-cache-chat-messages');
 
 const bot = new TelegramBot(BOT_TOKEN);
-const casheMessages = new TelegramCacheChatMessages({ bot, all: true });
+const casheMessages = new TelegramCacheChatMessages({
+  bot,
+  all: true,
+  edited: true
+});
 
 bot.onText(/command/, msg => {
   const chatId = msg.chat.id;
@@ -36,7 +40,8 @@ bot.onText(/command/, msg => {
 ```javascript
 new TelegramCacheChatMessages({
   bot: <you bot instance> // previously created bot via node-telegram-bot-api
-  all: <boolean> //[default: false] false means that you cache only last message, true is that you cache all messages
+  all: <boolean> // [default: false] false means that you cache only last message, true is that you cache all messages
+  edited: <boolean> // [default: true] false means that you cache only messages, true is that you cache edited messages too
 });
 ```
 
